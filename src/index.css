@@ -1,3 +1,10 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 :root {
-  --header-height: 96px;
+  --header-height: 64px;
+  --bs-card-height: 379px;
 }
