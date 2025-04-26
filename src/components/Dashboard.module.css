@@ -1,0 +1,5 @@
+.container {
+  background-color: #f3f3f3;
+  min-height: calc(100vh - var(--header-height));
+  padding: 3%;
+}

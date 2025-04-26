@@ -1,0 +1,16 @@
+.container {
+  position: relative;
+  z-index: 1;
+  min-width: 100%;
+  background-color: #ffffff;
+  box-shadow: 0 0.4em 0.4em rgba(0, 0, 0, 0.251);
+}
+
+.fontStyle {
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 26px;
+  letter-spacing: 0.46px;
+  text-transform: uppercase;
+}
