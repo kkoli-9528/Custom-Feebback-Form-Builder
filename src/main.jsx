@@ -1,9 +1,11 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import App from './routes/App.jsx'
+import { store } from './store/store.js';
+import { Provider } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './index.css'
+import App from './routes/App.jsx'
 import Dashboard from './components/Dashboard.jsx';
 
 const router = createBrowserRouter([
@@ -18,6 +20,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </StrictMode>,
 )
