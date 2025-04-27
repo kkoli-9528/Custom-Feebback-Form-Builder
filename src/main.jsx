@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './index.css'
 import App from './routes/App.jsx'
 import Dashboard from './components/Dashboard.jsx';
+import CreateCustomFeedback from './components/CreateCustomFeedback.jsx';
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       { path: "/", element: <Dashboard /> },
+      { path: "/create-feedback-form-customize", element: <CreateCustomFeedback /> },
     ]
   }
 ]);

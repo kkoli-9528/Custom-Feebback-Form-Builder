@@ -6,10 +6,13 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Button from '@mui/material/Button';
 import { useDispatch, useSelector } from "react-redux";
 import { handleClose } from '../store/defaultCardSlice';
+import { useNavigate } from 'react-router-dom';
+import { addlabelName } from '../store/newFeedbackFormCustomizeSlice';
 
 const CreateFormModal = () => {
   const open = useSelector((store) => store.defaultCard.value);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleButtonClose = () => {
     dispatch(handleClose());
@@ -28,8 +31,9 @@ const CreateFormModal = () => {
             event.preventDefault();
             const formData = new FormData(event.currentTarget);
             const formJson = Object.fromEntries((formData).entries());
-            const email = formJson.email;
-            console.log(email);
+            const text = formJson.text;
+            dispatch(addlabelName(text));
+            navigate("/create-feedback-form-customize");
             handleClose();
           },
         },
