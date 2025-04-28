@@ -1,13 +1,17 @@
-import { useSelector } from "react-redux";
 import styles from './CreateCustomFeedback.module.css';
 import SideBar from "./SideBar";
+import FeedBackCutomCard from "./FeedBackCutomCard";
 
 
 const CreateCustomFeedback = () => {
-  const labelName = useSelector(store => store.newFeedbackFormCustomize.labelName);
 
   return (
-    <SideBar />
+    <center className={styles.cardCenterAlign}>
+      <SideBar />
+      <div className={styles.cardAlignHorizontal}>
+        <FeedBackCutomCard />
+      </div>
+    </center>
   );
 }
 

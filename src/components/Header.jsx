@@ -1,6 +1,10 @@
+import { useSelector } from 'react-redux';
 import styles from './Header.module.css';
+import { Button } from '@mui/material';
 
 const Header = () => {
+  const headerButton = useSelector(store => store.headerButton.value);
+
   return (
     <>
       <div className={`container ${styles.container}`}>
@@ -10,13 +14,14 @@ const Header = () => {
             <span className={styles.fontStyle}>USER Feedback</span>
           </a>
 
-          <ul className="nav nav-pills invisible">
-            <li className="nav-item"><a href="#" className="nav-link active" aria-current="page">Home</a></li>
-            <li className="nav-item"><a href="#" className="nav-link">Features</a></li>
-            <li className="nav-item"><a href="#" className="nav-link">Pricing</a></li>
-            <li className="nav-item"><a href="#" className="nav-link">FAQs</a></li>
-            <li className="nav-item"><a href="#" className="nav-link">About</a></li>
-          </ul>
+          {headerButton && (<ul className="nav nav-pills align-items-center">
+            <li className="nav-item px-3"><Button className="btn btn-primary" variant="contained" size='large'>
+              Save
+            </Button></li>
+            <li className="nav-item pe-3"><Button className="btn btn-success" variant="contained" color="success" size='large'>
+              Publish
+            </Button></li>
+          </ul>)}
         </header>
       </div>
     </>

@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { handleClose } from '../store/defaultCardSlice';
 import { useNavigate } from 'react-router-dom';
 import { addlabelName } from '../store/newFeedbackFormCustomizeSlice';
+import { addButtons } from '../store/headerbuttonSlice';
 
 const CreateFormModal = () => {
   const open = useSelector((store) => store.defaultCard.value);
@@ -33,6 +34,7 @@ const CreateFormModal = () => {
             const formJson = Object.fromEntries((formData).entries());
             const text = formJson.text;
             dispatch(addlabelName(text));
+            dispatch(addButtons());
             navigate("/create-feedback-form-customize");
             handleClose();
           },

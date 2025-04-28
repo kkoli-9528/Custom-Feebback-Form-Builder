@@ -4,7 +4,7 @@ const initialState = {
   labelName: "null",
 };
 
-export const newFeedbackFormCustomizeSlice = createSlice({
+const newFeedbackFormCustomizeSlice = createSlice({
   name: "newFeedbackFormCustomize",
   initialState,
   reducers: {

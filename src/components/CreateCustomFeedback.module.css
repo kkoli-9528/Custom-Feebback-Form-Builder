@@ -1,0 +1,8 @@
+.cardCenterAlign {
+  position: relative;
+}
+
+.cardAlignHorizontal {
+  display: flex;
+  justify-content: center;
+}

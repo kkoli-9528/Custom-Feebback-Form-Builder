@@ -67,9 +67,9 @@ const SideBar = () => {
           onClose={toggleDrawer('right', false)}
           sx={{
             '& .MuiDrawer-paper': {
-              height: 'calc(100vh - 64px)', // 👈 this is the trick
+              minHeight: 'calc(100vh - 64px)',
               top: "65px",
-              zIndex: 0
+              zIndex: 2
             }
           }}
         >

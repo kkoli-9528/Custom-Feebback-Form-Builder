@@ -4,7 +4,7 @@ const initialState = {
   value: false,
 };
 
-export const defaultCardSlice = createSlice({
+const defaultCardSlice = createSlice({
   name: 'defaultCard',
   initialState,
   reducers: {
