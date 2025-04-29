@@ -1,0 +1,16 @@
+.iconSize {
+  font-size: 40px;
+  color: "#106EA4";
+  cursor: pointer;
+}
+
+.iconSize:hover {
+  background-color: rgba(145, 145, 145, 0.12);
+  border-radius: 30px;
+}
+
+.container {
+  display: "flex";
+  justify-content: "space-between";
+  cursor: "pointer";
+}

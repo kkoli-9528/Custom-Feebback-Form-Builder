@@ -1,0 +1,11 @@
+.textHeader {
+  width: 266px;
+  height: 36px;
+  font-family: Roboto;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 160%;
+  letter-spacing: 0.15px;
+  margin-top: 20px;
+  text-align: start;
+}
