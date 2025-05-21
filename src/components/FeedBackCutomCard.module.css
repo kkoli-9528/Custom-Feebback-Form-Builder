@@ -5,8 +5,9 @@
 }
 
 .card {
-  --bs-card-height: 752px;
+  min-height: 752px;
   width: 500px;
+  border: transparent;
 }
 
 .cardBody {
@@ -26,4 +27,9 @@
   line-height: 160%;
   letter-spacing: 0.15px;
   margin-bottom: 20px;
+}
+
+.addFields {
+  margin: 25px 15px;
+  height: 100%;
 }

@@ -10,3 +10,12 @@
   --header-height: 64px;
   --bs-card-height: 379px;
 }
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: #f3f3f3;
+}

@@ -1,72 +1,57 @@
-import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
-import List from '@mui/material/List';
-import { useState } from 'react';
-import { useSelector } from 'react-redux';
-import CustomFieldComponents from './CustomFieldComponents';
-import styles from './SideBar.module.css';
-import { Divider } from '@mui/material';
-import AddLogicComponent from './AddLogicComponent';
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import CustomFieldComponents from "./CustomFieldComponents";
+import AddLogicComponent from "./AddLogicComponent";
+import styles from "./SideBar.module.css";
 
 const SideBar = () => {
+  const [sidebarHeight, setSidebarHeight] = useState(0);
+  const arrayOfImages = useSelector((store) => store.addFieldsComponent);
+  const addLogicComponent = useSelector((store) => store.addLogicComponent);
 
-  const [state, setState] = useState({ right: false });
-  const arrayOfImages = useSelector(store => store.addFieldsComponent);
-  const addLogicComponent = useSelector(store => store.addLogicComponent);
+  useEffect(() => {
+    const updateHeight = () => {
+      const headerHeight =
+        parseInt(
+          getComputedStyle(document.documentElement).getPropertyValue(
+            "--header-height"
+          )
+        ) || 64;
+      setSidebarHeight(window.innerHeight - headerHeight);
+    };
 
-  const toggleDrawer = (right, open) => (event) => {
-    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-      return;
-    }
-
-    setState({ ...state, [right]: open });
-  };
-
-  const list = (right) => (
-    <Box
-      sx={{ width: right === 'top' || right === 'bottom' ? 'auto' : 317 }}
-      role="presentation"
-      onClick={toggleDrawer(right, false)}
-      onKeyDown={toggleDrawer(right, false)}
-    >
-      <List>
-        <h6 className={styles.textHeader}>Add fields</h6>
-        {arrayOfImages.map((image) => (
-          <CustomFieldComponents key={image.id} image={image} />
-        ))}
-      </List>
-      <Divider />
-      <List>
-        <h6 className={styles.textHeader}>Add Logic</h6>
-        {addLogicComponent.map((item) => (
-          <AddLogicComponent key={item.id} item={item} />
-        ))}
-      </List>
-    </Box>
-  );
+    updateHeight(); // Set initially
+    window.addEventListener("resize", updateHeight);
+    return () => window.removeEventListener("resize", updateHeight);
+  }, []);
 
   return (
-    <div>
-      <div key='right'>
-        <Drawer
-          anchor='right'
-          variant='permanent'
-          open={state['right']}
-          onClose={toggleDrawer('right', false)}
-          sx={{
-            '& .MuiDrawer-paper': {
-              minHeight: 'calc(100vh - 64px)',
-              top: "65px",
-              zIndex: 2,
-              boxShadow: "0px 4px 4px 0px #00000040"
-            }
-          }}
-        >
-          {list('right')}
-        </Drawer>
+    <div className={styles.sidebar} style={{ height: `${sidebarHeight}px` }}>
+      <div className={styles.section}>
+        <h6 className={styles.textHeader}>Add fields</h6>
+        <ul className={styles.list}>
+          {arrayOfImages.map((image) => (
+            <li key={image.id}>
+              <CustomFieldComponents image={image} />
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <hr className={styles.divider} />
+
+      <div className={styles.section}>
+        <h6 className={styles.textHeader}>Add Logic</h6>
+        <ul className={styles.list}>
+          {addLogicComponent.map((item) => (
+            <li key={item.id}>
+              <AddLogicComponent item={item} />
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
-}
+};
 
 export default SideBar;

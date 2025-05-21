@@ -1,18 +1,18 @@
-import styles from './CreateCustomFeedback.module.css';
+import styles from "./CreateCustomFeedback.module.css";
 import SideBar from "./SideBar";
 import FeedBackCutomCard from "./FeedBackCutomCard";
 
-
 const CreateCustomFeedback = () => {
-
   return (
-    <center className={styles.cardCenterAlign}>
-      <SideBar />
+    <div className={styles.cardCenterAlign}>
       <div className={styles.cardAlignHorizontal}>
         <FeedBackCutomCard />
       </div>
-    </center>
+      <div className={styles.sideBar}>
+        <SideBar />
+      </div>
+    </div>
   );
-}
+};
 
 export default CreateCustomFeedback;

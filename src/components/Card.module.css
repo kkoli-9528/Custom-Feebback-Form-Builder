@@ -1,5 +1,5 @@
 .card {
-  --bs-card-height: 379px;
+  height: var(--bs-card-height);
 }
 
 .cardBody {
@@ -9,6 +9,7 @@
   justify-content: center;
   align-items: center;
   border-radius: 8px;
+  border: 1px solid red;
   box-shadow: 0 0.4em 0.4em rgba(0, 0, 0, 0.251);
 }
 

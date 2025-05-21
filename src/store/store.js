@@ -4,6 +4,7 @@ import newFeedbackFormCustomizeSlice from "./newFeedbackFormCustomizeSlice";
 import headerButtonSlice from "./headerbuttonSlice";
 import addFieldsComponentSlice from "./addFieldsComponentSlice";
 import addLogicComponentSlice from "./addLogicComponentSlice";
+import switchComponentSlice from "./switchComponentSlice";
 
 export const store = configureStore({
   reducer: {
@@ -11,6 +12,7 @@ export const store = configureStore({
     newFeedbackFormCustomize: newFeedbackFormCustomizeSlice.reducer,
     headerButton: headerButtonSlice.reducer,
     addFieldsComponent: addFieldsComponentSlice.reducer,
-    addLogicComponent: addLogicComponentSlice.reducer
+    addLogicComponent: addLogicComponentSlice.reducer,
+    switchComponent: switchComponentSlice.reducer,
   },
 });
